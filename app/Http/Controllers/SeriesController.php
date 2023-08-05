@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
-class SeriesController
+use Illuminate\Http\Request;
+
+class SeriesController extends Controller
 {
-    // Esse método será executado na rota: /series
-    public function listarSeries(){
+    //
+    public function index(Request $request)
+    {
 
         // Lista de séries
         $series = [
@@ -14,14 +17,13 @@ class SeriesController
             'Breaking Bad'
         ];
 
-        // html de resultado que vai conter uma lista
-        $html = '<ul>';
+        // compact é exatamente a mesma coisa que está dentro dos colchetes
+        //return view('listar-series', [
+        //    'series' => $series
+        //]);
 
-        foreach ($series as $serie){
-            $html .= "<li>$serie</li>";
-        }
-        $html .= '</ul>';
+        //return view('listar-series', compact('series'));
 
-        echo $html;
-    }
+        return view('series.index')->with('series', $series);
+    } 
 }
