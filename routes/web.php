@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SeriesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +34,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/ola', function () {
-    echo 'Olá, mundo!';
-});
+// Primeiro item é a classe, o segundo é o nome do método que será chamado
+Route::get('/series', [SeriesController::class, 'listarSeries']);
