@@ -37,3 +37,4 @@ Route::get('/', function () {
 // Primeiro item é a classe, o segundo é o nome do método que será chamado
 Route::get('/series', [SeriesController::class, 'index']);
 Route::get('/series/criar', [SeriesController::class, 'create']);
+Route::post('/series/salvar', [SeriesController::class, 'store']);
